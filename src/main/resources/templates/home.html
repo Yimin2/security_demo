@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
@@ -7,5 +8,14 @@
 <body>
 	<h1>home</h1>
 	<a href="/info">info</a>
+
+	<div sec:authorize="!isAuthenticated()">
+		<a href="/login">login</a>
+	</div>
+
+	<div sec:authorize="isAuthenticated()">
+		<p sec:authentication="name"></p>
+		<a href="/dashboard">dashboard</a>
+	</div>
 </body>
 </html>
