@@ -19,12 +19,14 @@ public class DataInitializer implements CommandLineRunner {
                 .username("user")
                 .password(passwordEncoder.encode("1234"))
                 .role("ROLE_USER")
+                .email("test@test.com")
                 .build();
 
         User admin = User.builder()
                 .username("admin")
                 .password(passwordEncoder.encode("admin"))
                 .role("ROLE_ADMIN")
+                .email("test2@test.com")
                 .build();
 
         userRepository.save(user);
